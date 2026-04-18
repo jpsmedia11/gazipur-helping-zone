@@ -1,0 +1,84 @@
+type UpdateProviderArgs = 
+ record {
+   address: opt text;
+   area: opt text;
+   availability: opt text;
+   category: opt Category;
+   description: opt text;
+   email: opt text;
+   experience: opt nat;
+   id: ProviderId;
+   isActive: opt bool;
+   name: opt text;
+   phone: opt text;
+   priceRange: opt PriceRange;
+ };
+type ProviderView = 
+ record {
+   address: text;
+   area: text;
+   availability: text;
+   category: Category;
+   description: text;
+   email: text;
+   experience: nat;
+   id: ProviderId;
+   isActive: bool;
+   name: text;
+   phone: text;
+   priceRange: PriceRange;
+   rating: float64;
+   reviewCount: nat;
+ };
+type ProviderId = nat;
+type PriceRange = 
+ variant {
+   High;
+   Low;
+   Medium;
+ };
+type PageResult = 
+ record {
+   items: vec ProviderView;
+   page: nat;
+   pageSize: nat;
+   total: nat;
+ };
+type Category = 
+ variant {
+   ACRepair;
+   CarRepair;
+   Carpentry;
+   Cleaning;
+   Electrical;
+   Others;
+   Painting;
+   Plumbing;
+   Tailoring;
+   Tutoring;
+ };
+type AddProviderArgs = 
+ record {
+   address: text;
+   area: text;
+   availability: text;
+   category: Category;
+   description: text;
+   email: text;
+   experience: nat;
+   name: text;
+   phone: text;
+   priceRange: PriceRange;
+ };
+service : {
+  addProvider: (args: AddProviderArgs) -> (ProviderId);
+  getProvider: (id: ProviderId) -> (opt ProviderView) query;
+  listProviders: (page: nat, pageSize: nat) -> (PageResult) query;
+  listProvidersByArea: (area: text, page: nat, pageSize: nat) ->
+   (PageResult) query;
+  listProvidersByCategory: (category: Category, page: nat, pageSize: 
+   nat) -> (PageResult) query;
+  searchProviders: (keyword: text, page: nat, pageSize: nat) ->
+   (PageResult) query;
+  updateProvider: (args: UpdateProviderArgs) -> (bool);
+}

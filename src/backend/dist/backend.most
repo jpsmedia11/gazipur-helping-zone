@@ -1,0 +1,45 @@
+// Version: 1.0.0
+type Category__165251868 =
+  {
+    #ACRepair;
+    #CarRepair;
+    #Carpentry;
+    #Cleaning;
+    #Electrical;
+    #Others;
+    #Painting;
+    #Plumbing;
+    #Tailoring;
+    #Tutoring
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type PriceRange__453187857 = {#High; #Low; #Medium};
+type ProviderId__856479461 = Nat;
+type ProviderId__927134964 = ProviderId__856479461;
+type Provider__436650321 =
+  {
+    address : Text;
+    area : Text;
+    availability : Text;
+    category : Category__165251868;
+    description : Text;
+    email : Text;
+    experience : Nat;
+    id : ProviderId__927134964;
+    var isActive : Bool;
+    name : Text;
+    phone : Text;
+    priceRange : PriceRange__453187857;
+    var rating : Float;
+    var reviewCount : Nat
+  };
+actor {
+  stable var nextProviderId : Nat;
+  stable providers :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Provider__436650321]];
+      var elementIndex : Nat__490723111
+    }
+};

@@ -1,0 +1,22 @@
+{
+  "overview": "Gazipur Helping Zone is a community service directory for Gazipur residents to find and contact local service providers — plumbers, electricians, cleaners, tutors, and more — by category and neighborhood area.",
+  "features": [
+    "Service provider directory with category and area filters",
+    "Search providers by name or location",
+    "Provider detail pages with phone, WhatsApp, and email contact buttons",
+    "Home page with hero section and featured providers",
+    "About and Contact pages",
+    "Bilingual Bengali and English support",
+    "Responsive mobile and desktop design"
+  ],
+  "category": "community",
+  "tags": [
+    "community",
+    "gazipur",
+    "service-directory",
+    "bangladesh",
+    "local-services",
+    "bengali"
+  ],
+  "last_updated": "2026-04-18T08:27:30.518Z"
+}
